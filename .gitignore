@@ -1,0 +1,16 @@
+# 가상환경
+venv/
+env/
+
+# 파이썬 캐시 파일
+__pycache__/
+*.pyc
+
+# 오디오 임시 파일
+*.wav
+*.mp3
+*.m4a
+
+# 환경 변수 및 기타
+.env
+.DS_Store
