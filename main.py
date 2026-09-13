@@ -47,20 +47,26 @@ async def evaluate_audio(file: UploadFile = File(...)):
             messages = [
                 {
                     "role": "system",
-                    "content": "You are a strict and professional English grammar teacher. Your job is to correct the user's grammatical errors and provide a natural, native-level sentence. Never output random text."
+                    "content": "You are a professional TOEIC Speaking examiner for Korean students. You MUST write explanations in Korean (한국어). NEVER use Chinese characters. Do not use emojis or emoticons."
                 },
                 {
                     "role": "user",
-                    "content": f"""[User Text]
+                    "content": f"""Evaluate the following [User Text] based on TOEIC Speaking grading criteria. Correct the grammar and provide a natural native-level answer. Follow the EXACT format of the Example.
+
+                    [Example]
+                    문법 분석 및 교정:
+                    - 오류 발견: 'I is' 부분이 잘못되었습니다.
+                    - 상세 설명: 1인칭 단수 주어 'I' 뒤에는 'am'을 사용해야 합니다. 토익스피킹 채점 기준상 이러한 기본적인 주어-동사 수 일치 오류는 문법(Grammar) 항목에서 큰 감점 요인이 되므로 주의해야 합니다.
+
+                    모범 답안:
+                    I am a boy.
+
+                    ---
+                    [User Text]
                     {stt_text}
 
-                    You MUST format your response EXACTLY like this:
-
-                    Grammar Correction:
-                    (Explain what is wrong and correct it in a short sentence)
-
-                    Model Answer:
-                    (Provide a natural, native-level sentence)"""
+                    문법 분석 및 교정:
+                    """
                 }
             ]
             
